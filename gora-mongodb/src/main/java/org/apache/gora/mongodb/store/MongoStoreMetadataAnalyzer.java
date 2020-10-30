@@ -25,6 +25,7 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 public class MongoStoreMetadataAnalyzer extends DataStoreMetadataAnalyzer {
@@ -34,7 +35,8 @@ public class MongoStoreMetadataAnalyzer extends DataStoreMetadataAnalyzer {
 
     @Override
     public void initialize() {
-        MongoStoreParameters parameters = MongoStoreParameters.load(properties, getConf());
+        Object p = kukarek();
+        MongoStoreParameters parameters = MongoStoreParameters.load(null, getConf());
         mongoClient = MongoStore.getClient(parameters);
         mongoDatabase = mongoClient.getDatabase(parameters.getDbname());
     }

@@ -85,6 +85,10 @@ public abstract class DataStoreMetadataAnalyzer implements Configurable {
   public void setConf(Configuration conf) {
     this.conf = conf;
   }
+
+  public Object kukarek() {
+    return null;
+  }
   
   @Override
   public Configuration getConf() {
